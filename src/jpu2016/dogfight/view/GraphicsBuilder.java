@@ -10,7 +10,7 @@ import jpu2016.dogfight.model.IDogfightModel;
 
 public class GraphicsBuilder implements IGraphicsBuilder{
 	
-	public GraphicsBuilder(IDogFightModel dogFightModel) {
+	public GraphicsBuilder(IDogfightModel dogFightModel) {
 		
 	}
 	
@@ -24,7 +24,7 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 
 
 	private void drawMobile(final IMobile mobile, final Graphics graphics, final ImageObserver observer) {
-		final BufferedImage imageMobile = new BufferedImage(mobile.getWidth(), mobile.getHeight(), Transparency.TRANSLUCENT);
+		/*final BufferedImage imageMobile = new BufferedImage(mobile.getWidth(), mobile.getHeight(), Transparency.TRANSLUCENT);
 
 		final Graphics graphicsMobile = imageMobile.getGraphics(); graphicsMobile.drawImage(mobile.getImage(), 0, 0, mobile.getWidth(), mobile.getHeight(), observer);
 
@@ -49,7 +49,7 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 							(mobile.getWidth() - this.dogfightModel.getArea().getWidth()) + mobile.getPosition().getX(),
 							(mobile.getHeight() - this.dogfightModel.getArea().getHeight()) + mobile.getPosition().getY());
 			graphics.drawImage(imageMobileHV, 0, 0, observer);
-		}
+		}*/
 	}
 
 	public int getGlobalWidth()

@@ -3,45 +3,48 @@ package jpu2016.dogfight.view;
 import java.awt.event.KeyEvent;
 
 import jpu2016.dogfight.controller.IOrderPerformer;
+import jpu2016.dogfight.controller.Order;
 import jpu2016.dogfight.controller.UserOrder;
 import jpu2016.gameframe.IEventPerformer;
 
 public class EventPerformer implements IEventPerformer {
 
-	private IOrderPerformer order;
+	private Order order;
+	private UserOrder keyCodeOrder;
 
 	public EventPerformer(IOrderPerformer orderPerformer) {
 
-		this.order = orderPerformer;
+		/*this.order = orderPerformer;
 
 		switch(order) {
-			case (haut):
+			case UP:
 				//changement de direction en angle droit
 				break;
-			case (bas):
+			case DOWN:
 				//changement de direction en angle droit
 				break;
-			case(dorite):
+			case RIGHT:
 				//changement de direction en angle droit
 				break;
-			case (gauche):
+			case LEFT:
 				//changement de direction en angle droit
 				break;
-			case (missile):
+			case SHOOT:
 				//changement de direction en angle droit
 				break;
 			default:
 				// ne fait rien.
 				break;
+				*/
 
 		}
-	}
+	//}
 	
 	public void eventPerform(KeyEvent keyCode) {
 		
 	}
 	
 	private UserOrder keyCodeToUserOrder(int keyCode) {
-
+		return keyCodeOrder;
 	}
 }
