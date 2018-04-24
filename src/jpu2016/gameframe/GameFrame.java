@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import static javafx.scene.input.KeyCode.getKeyCode;
 
 public class GameFrame extends JFrame implements KeyListener{
-    private KeyEvent key;
+
 	private IEventPerformer perfomer;
 	private Observable observer;
 
@@ -35,12 +35,12 @@ public class GameFrame extends JFrame implements KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent keyEvent) {
-		this.key = keyEvent;
-		switch(key){
-			case(getKeyCode(key) = KeyEvent.VK_Z):
+
+		switch(keyEvent){
+			case(keyEvent.getKeyCode() = KeyEvent.VK_Z):
 				//direction UP
 				break;
-			case(key.getKeyCode() = keyEvent.VK_Q):
+			case(keyEvent.getKeyCode() = keyEvent.VK_Q):
 				//direction LEFT
 				break;
 			case (keyEvent.getKeyCode() = keyEvent.VK_S):
@@ -63,6 +63,8 @@ public class GameFrame extends JFrame implements KeyListener{
 			case (keyEvent.getKeyCode() = keyEvent.VK_RIGHT):
 				//direction RIGHT
 				break;
+			defaut:
+			break;
 
 		}
 
