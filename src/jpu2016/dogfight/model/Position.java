@@ -11,33 +11,37 @@ private double maxY;
 public Position(double x, double y, double maxX, double maxY) {
 	
 }
-	
-public Position(Position position) {
-	
-}
 
 public double getX() {
-
+	return x;
 }
 
 public void setX(double x) {
-
+	this.x = x;
 }
 
 public double getY() {
-
+	return y;
 }
 
 public void setY(double y) {
-
+	this.y = y;
 }
 
-protected void setMaxX(double maxX) {
-
+public double getMaxX() {
+	return maxX;
 }
 
-protected void setMaxY(double maxY) {
+public void setMaxX(double maxX) {
+	this.maxX = maxX;
+}
 
+public double getMaxY() {
+	return maxY;
+}
+
+public void setMaxY(double maxY) {
+	this.maxY = maxY;
 }
 
 }
