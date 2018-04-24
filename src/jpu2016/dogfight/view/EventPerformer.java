@@ -14,7 +14,7 @@ public class EventPerformer implements IEventPerformer {
 
 	public EventPerformer(IOrderPerformer orderPerformer) {
 
-		/*this.order = orderPerformer;
+		this.order = orderPerformer;
 
 		switch(order) {
 			case UP:
@@ -35,10 +35,10 @@ public class EventPerformer implements IEventPerformer {
 			default:
 				// ne fait rien.
 				break;
-				*/
+
 
 		}
-	//}
+	}
 	
 	public void eventPerform(KeyEvent keyCode) {
 		

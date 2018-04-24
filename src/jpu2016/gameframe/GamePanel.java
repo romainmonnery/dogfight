@@ -14,15 +14,10 @@ public class GamePanel extends JPanel implements Observer {
 
 
 	public GamePanel(IGraphicsBuilder graphicBuilder) {
-
 		this.gBuilder = graphicBuilder;
-		//fenetre.setContentPane(GamePanel.panel);
 		JPanel panel = new JPanel();
 		panel.setSize(500, 500);
 		panel.setVisible(true);
-
-
-
 
 	}
 
