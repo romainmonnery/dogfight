@@ -10,7 +10,7 @@ public interface IMobile {
 
 	public void setDirection(Direction direction);
 
-	public Point getPosition();
+	public Position getPosition();
 
 	public Dimension getDimension();
 
@@ -23,6 +23,7 @@ public interface IMobile {
 	public Image getImage();
 	
 	public void move();
+		
 	
 	public void placeInArea(IArea area);
 

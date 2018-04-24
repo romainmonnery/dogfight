@@ -2,19 +2,21 @@ package jpu2016.dogfight.model;
 
 import java.awt.Color;
 import java.awt.Image;
-import java.awt.Point;
+
 
 public class Mobile implements IMobile{
 
 private int speed;
 private Direction direction;
-protected Point position;
+protected Position position;
 protected Dimension dimension;
 private Color color;
 private Image image;
 private DogfightModel dogfightModel;
 
 public Mobile(Direction direction, Position position, Dimension dimension, int speed, String image) {
+	this.setDirection(direction);
+	this.setPosition(position);
 	
 }
 
@@ -26,7 +28,7 @@ public void setDirection(Direction direction) {
 	this.direction=direction;
 }
 
-public Point getPosition() {
+public Position getPosition() {
 	return this.position;
 }
 
@@ -47,7 +49,23 @@ public int getWidth() {
 }
 
 public void move() {
+	switch (direction) {
+	case UP:
+		this.moveUp();
+		break;
 	
+	case DOWN:
+		this.moveDown();
+		break;
+		
+	case LEFT:
+		this.moveLeft();
+		break;
+		
+	case RIGHT:
+		this.moveRight();
+		break;
+	}
 }
 
 public void placeInArea(IArea area) {
@@ -59,19 +77,27 @@ public boolean isPlayer(int player) {
 }
 
 private void moveUp() {
-	
+	if(this.getPosition().getY()+1<this.getPosition().getMaxX()) {
+		this.getPosition().setY (this.getPosition().getY()+1);
+	}
 }
 
 private void moveRight() {
-	
+	if(this.getPosition().getX()+1<this.getPosition().getMaxX()) {
+		this.getPosition().setX (this.getPosition().getX()+1);
+	}
 }
 
 private void moveDown() {
-	
+	if(this.getPosition().getY()-1>this.getPosition().getMaxX()) {
+		this.getPosition().setY(this.getPosition().getY()-1);
+	}
 }
 
 private void moveLeft() {
-	
+	if(this.getPosition().getX()-1>this.getPosition().getMaxX()) {
+		this.getPosition().setX(this.getPosition().getX()-1);
+	}
 }
 
 public Color getColor() {
@@ -85,11 +111,11 @@ public IDogfightModel getDogfightModel() {
 
 
 public boolean hit() {
-	return true;
+	return false;
 }
 
 public boolean isWeapon() {
-	return true;
+	return false;
 }
 
 public Image getImage() {

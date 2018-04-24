@@ -9,11 +9,26 @@ private double maxX;
 private double maxY;
 
 public Position(double x, double y, double maxX, double maxY) {
-	
+	this.x=x;
+	this.y=y;
+	this.maxX=maxX;
+	this.maxY=maxY;
+}
+
+public Position(Position position) {
+	this(position.getX(), position.getY(), position.getMaxX(), position.getMaxY());
 }
 
 public double getX() {
 	return x;
+}
+
+public double getMaxX() {
+	return maxX;
+}
+
+public double getMaxY() {
+	return maxY;
 }
 
 public void setX(double x) {
@@ -28,19 +43,13 @@ public void setY(double y) {
 	this.y = y;
 }
 
-public double getMaxX() {
-	return maxX;
-}
 
-public void setMaxX(double maxX) {
+protected void setMaxX(double maxX) {
 	this.maxX = maxX;
 }
 
-public double getMaxY() {
-	return maxY;
-}
 
-public void setMaxY(double maxY) {
+protected void setMaxY(double maxY) {
 	this.maxY = maxY;
 }
 

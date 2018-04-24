@@ -6,11 +6,12 @@ private int width;
 private int height;
 
 public Dimension(int width, int height) {
-	
+	this.width=width;
+	this.height=height;
 }
 	
 public Dimension(Dimension dimension) {
-	
+	this(dimension.width, dimension.height);
 }
 
 public int getWidth() {
@@ -31,3 +32,4 @@ public void setHeight(int height) {
 
 
 }
+// dimension
