@@ -3,6 +3,7 @@ package jpu2016.dogfight.view;
 import java.util.Observable;
 
 import jpu2016.dogfight.controller.IOrderPerformer;
+import sun.plugin2.message.Message;
 
 public class DogFightView implements IViewSystem, Runnable{
 
@@ -12,7 +13,7 @@ public class DogFightView implements IViewSystem, Runnable{
 	
 	@Override
 	public void displayMessage(String message) {
-		
+
 	}
 
 	@Override
@@ -21,7 +22,7 @@ public class DogFightView implements IViewSystem, Runnable{
 	}
 
 	@Override
-	public void run() {
+	private void run() {
 		
 	}
 
