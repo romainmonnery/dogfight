@@ -19,7 +19,8 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 	}
 	
 	private void buildEmptySky() {
-		
+
+
 	}
 
 
@@ -49,6 +50,7 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 							(mobile.getWidth() - this.dogfightModel.getArea().getWidth()) + mobile.getPosition().getX(),
 							(mobile.getHeight() - this.dogfightModel.getArea().getHeight()) + mobile.getPosition().getY());
 			graphics.drawImage(imageMobileHV, 0, 0, observer);
+			//drawImage(Image img, int x, int y, Observer obs);
 		}
 	}
 

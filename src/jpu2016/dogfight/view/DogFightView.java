@@ -11,7 +11,7 @@ public class DogFightView implements IViewSystem, Runnable{
 	public DogFightView(IOrderPerformer orderPerformer, IDogFightModel dogFightModel, Observable observable) {
 		GraphicsBuilder gBuilder = new GraphicsBuilder(dogFightModel);
 		EventPerformer performer = new EventPerformer(orderPerformer);
-		GameFrame frame = new GameFrame("fenetre de jeux", performer, gBuilder, observable);
+		GameFrame frame = new GameFrame("titre", performer, gBuilder, observable);
 	}
 	
 	@Override
