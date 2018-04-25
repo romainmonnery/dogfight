@@ -31,21 +31,41 @@ public class DogfightController implements IOrderPerformer {
 	}
 
 	private void launchMissile(int player) {
-				
+
+		Direction dirP = null;
+		Position posP = null;
+
 		if (player == 1) {
-			
-			Direction dirP = dogfightModel.getMobileByPlayer(1).getDirection();
-			Position posP = dogfightModel.getMobileByPlayer(1).getPosition();
-			Dimension dim = new Dimension(30, 10);
-			Missile missile = new Missile(dirP, dim);
-		} 
-		else if (player == 2) {
-			
-			Direction dirP = dogfightModel.getMobileByPlayer(2).getDirection();
-			Position posP = dogfightModel.getMobileByPlayer(2).getPosition();
-			Dimension dim = new Dimension(30, 10);
-			Missile missile = new Missile(dirP, dim);
-		}	
+
+			dirP = dogfightModel.getMobileByPlayer(1).getDirection();
+			posP = dogfightModel.getMobileByPlayer(1).getPosition();
+
+		} else if (player == 2) {
+
+			dirP = dogfightModel.getMobileByPlayer(2).getDirection();
+			posP = dogfightModel.getMobileByPlayer(2).getPosition();
+
+		}
+		switch (dirP) {
+		case UP:
+			Position positionUp = new Position(posP.getX(), posP.getY() + 1, posP.getMaxX(), posP.getMaxY());
+			Missile missileUp = new Missile(dirP, posP);
+			break;
+		case DOWN:
+			Position positionDown = new Position(posP.getX(), posP.getY() - 1, posP.getMaxX(), posP.getMaxY());
+			Missile missileDown = new Missile(dirP, posP);
+			break;
+		case LEFT:
+			Position positionLeft = new Position(posP.getX() - 1, posP.getY(), posP.getMaxX(), posP.getMaxY());
+			Missile missileLeft = new Missile(dirP, posP);
+			break;
+		case RIGHT:
+			Position positionRight = new Position(posP.getX() + 1, posP.getY(), posP.getMaxX(), posP.getMaxY());
+			Missile missileRight = new Missile(dirP, posP);
+			break;
+		default:
+			break;
+		}
 	}
 
 	private void gameLoop() {
@@ -67,13 +87,12 @@ public class DogfightController implements IOrderPerformer {
 		}
 		return false;
 	}
-	
+
 	public void manageCollision(final IMobile mobile, final IMobile weapon) {
-		if (this.isWeaponOnMobile(mobile, weapon) == true) {
-			
-		}
-		else {
-			
+		if (this.isWeaponOnMobile(mobile, weapon)) {
+			Sys.UI.DomElement.setVisible(weapon, false);
+		} else {
+
 		}
 	}
 }
