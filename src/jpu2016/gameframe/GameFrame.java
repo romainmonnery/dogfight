@@ -13,21 +13,22 @@ import static javafx.scene.input.KeyCode.getKeyCode;
 public class GameFrame extends JFrame implements KeyListener{
 
 	private IEventPerformer perfomer;
-	private Observable observer;
+	private Observable observable;
+	private GamePanel gamePanel;
 
 
-	public GameFrame(String title, IEventPerformer performer, IGraphicsBuilder graphicBuilder, Observable observer) {
+	public GameFrame(String title, IEventPerformer performer, IGraphicsBuilder graphicBuilder, Observable observable) {
 
-		JFrame fenetre = new JFrame();
-		fenetre.setTitle(title);
-		fenetre.setSize(500, 500);
-		fenetre.setVisible(true);
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle(title);
+		this.setLocationRelativeTo(null);
+		this.setSize(500, 500);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.perfomer = performer;
-		this.observer = observer;
-		this.setContentPane(new GamePanel (graphicBuilder));
+		this.observable = observable;
+		this.gamePanel = new GamePanel(graphicBuilder);
+		this.setContentPane(gamePanel);
 
-
+		this.setVisible(true);
 	}
 
 
@@ -36,7 +37,7 @@ public class GameFrame extends JFrame implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent keyEvent) {
 
-		switch(keyEvent){
+		/*switch(keyEvent){
 			case(keyEvent.getKeyCode() = KeyEvent.VK_Z):
 				//direction UP
 				break;
@@ -67,7 +68,7 @@ public class GameFrame extends JFrame implements KeyListener{
 			break;
 
 		}
-
+*/
 	}
 
 	@Override

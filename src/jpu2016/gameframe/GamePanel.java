@@ -1,5 +1,7 @@
 package jpu2016.gameframe;
 
+import jpu2016.dogfight.view.GraphicsBuilder;
+
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 import java.util.Observable;
@@ -15,20 +17,19 @@ public class GamePanel extends JPanel implements Observer {
 
 	public GamePanel(IGraphicsBuilder graphicBuilder) {
 		this.gBuilder = graphicBuilder;
-		JPanel panel = new JPanel();
-		panel.setSize(500, 500);
-		panel.setVisible(true);
+		this.setSize(500, 500);
+		this.setVisible(true);
 
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		//if arg0
-		//if arg1
+		repaint();
 	}
 
+	@Override
 	public void paintComponent(Graphics graphic) {
-
+		gBuilder.applyModelToGraphic(graphic, this);
 	}
 
 

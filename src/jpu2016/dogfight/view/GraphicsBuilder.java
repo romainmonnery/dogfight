@@ -13,13 +13,21 @@ import jpu2016.dogfight.model.IDogfightModel;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class GraphicsBuilder extends JPanel, implements IGraphicsBuilder{
-	
+public class GraphicsBuilder extends JPanel implements IGraphicsBuilder{
+
+	private int GlobalWitdth;
+	private int GlobalHeight;
+	private BufferedImage emptySky;
+	private IDogfightModel dogfightModel;
+
+
 	public GraphicsBuilder(IDogfightModel dogFightModel) {
-		
+
 	}
 	
 	public void applyModelToGraphic(Graphics graphics, ImageObserver observer) {
+
+
 		
 	}
 	
@@ -41,26 +49,26 @@ public class GraphicsBuilder extends JPanel, implements IGraphicsBuilder{
 
 		final Graphics graphicsMobile = imageMobile.getGraphics(); graphicsMobile.drawImage(mobile.getImage(), 0, 0, mobile.getWidth(), mobile.getHeight(), observer);
 
-		graphics.drawImage(imageMobile, mobile.getPosition().getX(), mobile.getPosition().getY(), observer);
-		final boolean isHorizontalOut = (mobile.getPosition().getX() + mobile.getWidth()) > this.dogfightModel.getArea().getWidth();
-		final boolean isVerticalOut = (mobile.getPosition().getY() + mobile.getHeight()) > this.dogfightModel.getArea().getHeight();
+		graphics.drawImage(imageMobile, (int) mobile.getPosition().getX(), (int) mobile.getPosition().getY(), observer);
+		final boolean isHorizontalOut = (mobile.getPosition().getX() + mobile.getWidth()) > this.dogfightModel.getArea().getDimension().getWidth();
+		final boolean isVerticalOut = (mobile.getPosition().getY() + mobile.getHeight()) > this.dogfightModel.getArea().getDimension().getHeight();
 		if (isHorizontalOut) {
 			final BufferedImage imageMobileH = imageMobile.getSubimage
-					(this.dogfightModel.getArea().getWidth() - mobile.getPosition().getX(),
-							0, (mobile.getWidth() - this.dogfightModel.getArea().getWidth()) + mobile.getPosition().getX(), mobile.getHeight());
+					(this.dogfightModel.getArea().getDimension().getWidth() - (int)mobile.getPosition().getX(),
+							0, (mobile.getWidth() - this.dogfightModel.getArea().getDimension().getWidth()) +(int) mobile.getPosition().getX(), mobile.getHeight());
 			graphics.drawImage(imageMobileH, 0, (int) mobile.getPosition().getY(), observer);
 		}
 		if (isVerticalOut) {
 			final BufferedImage imageMobileV = imageMobile.getSubimage
-					(0, this.dogfightModel.getArea().getHeight() - mobile.getPosition().getY(), mobile.getWidth(),
-							(mobile.getHeight() - this.dogfightModel.getArea().getHeight()) + mobile.getPosition().getY());
-			graphics.drawImage(imageMobileV, mobile.getPosition().getX(), 0, observer);
+					(0, this.dogfightModel.getArea().getDimension().getHeight() - (int)mobile.getPosition().getY(), mobile.getWidth(),
+							(mobile.getHeight() - this.dogfightModel.getArea().getDimension().getHeight()) + (int)mobile.getPosition().getY());
+			graphics.drawImage(imageMobileV, (int)mobile.getPosition().getX(), 0, observer);
 		}
 		if (isHorizontalOut && isVerticalOut) {
 			final BufferedImage imageMobileHV = imageMobile.getSubimage
-					(this.dogfightModel.getArea().getWidth() - mobile.getPosition().getX(), this.dogfightModel.getArea().getHeight() - mobile.getPosition().getY(),
-							(mobile.getWidth() - this.dogfightModel.getArea().getWidth()) + mobile.getPosition().getX(),
-							(mobile.getHeight() - this.dogfightModel.getArea().getHeight()) + mobile.getPosition().getY());
+					(this.dogfightModel.getArea().getDimension().getWidth() - (int)mobile.getPosition().getX(), this.dogfightModel.getArea().getDimension().getHeight() -(int) mobile.getPosition().getY(),
+							(mobile.getWidth() - this.dogfightModel.getArea().getDimension().getWidth()) + (int)mobile.getPosition().getX(),
+							(mobile.getHeight() - this.dogfightModel.getArea().getDimension().getHeight()) + (int)mobile.getPosition().getY());
 			graphics.drawImage(imageMobileHV, 0, 0, observer);
 
 		}
@@ -70,7 +78,6 @@ public class GraphicsBuilder extends JPanel, implements IGraphicsBuilder{
 
 	public int getGlobalWidth()
 	{
-
 		return 1;
 	}
 
